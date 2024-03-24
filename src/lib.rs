@@ -19,7 +19,9 @@ fn main() -> Result<(), JsValue> {
 
     let mut opts = RequestInit::new();
     opts.method("GET");
-    let _request = Request::new_with_str_and_init("resource.png", &opts)?;
+    let request = Request::new_with_str_and_init("resource.png", &opts)?;
+
+    let _response_promise = window.fetch_with_request(&request);
 
     Ok(())
 }
