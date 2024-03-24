@@ -9,6 +9,7 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
+js-sys = "0.3.67"
 web-sys = { version = "0.3.67", features = [
   "Window",
   "Document",
@@ -17,6 +18,6 @@ web-sys = { version = "0.3.67", features = [
 wasm-bindgen = "0.2.90"
 
 [patch.crates-io]
-# wasm-bindgen = { path = "../wasm-bindgen-fork", features = ["serde-serialize"] }js-sys = "0.3.67"
+# wasm-bindgen = { path = "../wasm-bindgen-fork" }
 # js-sys = { path = "../wasm-bindgen-fork/crates/js-sys" }
 # web-sys = { path = "../wasm-bindgen-fork/crates/web-sys" }
