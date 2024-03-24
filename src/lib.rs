@@ -1,5 +1,7 @@
 use wasm_bindgen::prelude::*;
 
+use web_sys::{Request, RequestInit};
+
 // Called when the wasm module is instantiated
 #[wasm_bindgen(start)]
 fn main() -> Result<(), JsValue> {
@@ -14,6 +16,10 @@ fn main() -> Result<(), JsValue> {
     val.set_inner_html("Hello from Rust!");
 
     body.append_child(&val)?;
+
+    let mut opts = RequestInit::new();
+    opts.method("GET");
+    let _request = Request::new_with_str_and_init("resource.png", &opts)?;
 
     Ok(())
 }
