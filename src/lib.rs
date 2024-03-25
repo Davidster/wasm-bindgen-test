@@ -10,13 +10,17 @@ fn main() -> Result<(), JsValue> {
 
     let val = document.create_element("p")?;
     val.set_inner_html("Hello from Rust!");
-
     body.append_child(&val)?;
 
     let mut opts = RequestInit::new();
     opts.method("GET");
-    opts.mode(web_sys::RequestMode::SameOrigin);
+    opts.mode(web_sys::RequestMode::Cors);
     let request = Request::new_with_str_and_init("resource.png", &opts)?;
+    let request_mode = request.mode();
+
+    let val = document.create_element("p")?;
+    val.set_inner_html(&format!("request_mode={request_mode:?}"));
+    body.append_child(&val)?;
 
     let _response_promise = window.fetch_with_request(&request);
 
