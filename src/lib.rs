@@ -14,7 +14,7 @@ fn main() -> Result<(), JsValue> {
 
     let mut opts = RequestInit::new();
     opts.method("GET");
-    opts.mode(web_sys::RequestMode::Cors);
+    opts.mode(web_sys::RequestMode::NoCors);
     let request = Request::new_with_str_and_init("resource.png", &opts)?;
     let request_mode = request.mode();
 
