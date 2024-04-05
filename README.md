@@ -5,13 +5,10 @@
 ## How to run
 
 ```sh
-# build
-./build.sh
-
-# run
-npx serve .
-# then open http://localhost:3000/
+cargo run --package build_web -- --bin test
 ```
+
+or run 'Test' debug target in vscode debugger
 
 ## Print enum macro info to terminal
 
