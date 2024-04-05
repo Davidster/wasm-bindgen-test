@@ -10,7 +10,7 @@ repository = "https://github.com/Davidster/wasm-bindgen-test"
 authors = ["David Huculak https://github.com/Davidster"]
 
 [patch.crates-io]
-# wasm-bindgen = { path = "../wasm-bindgen-fork" }
-# wasm-bindgen-cli-support = { path = "../wasm-bindgen-fork/crates/cli-support" }
-# js-sys = { path = "../wasm-bindgen-fork/crates/js-sys" }
-# web-sys = { path = "../wasm-bindgen-fork/crates/web-sys" }
+wasm-bindgen = { path = "../wasm-bindgen-fork" }
+wasm-bindgen-cli-support = { path = "../wasm-bindgen-fork/crates/cli-support" }
+js-sys = { path = "../wasm-bindgen-fork/crates/js-sys" }
+web-sys = { path = "../wasm-bindgen-fork/crates/web-sys" }
