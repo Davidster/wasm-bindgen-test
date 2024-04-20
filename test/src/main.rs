@@ -67,6 +67,10 @@ fn run() -> Result<(), JsValue> {
 
     assert_eq!(tr1.direction(), RtcRtpTransceiverDirection::Sendonly);
     assert_eq!(tr1.current_direction(), None);
+    
+    let mut yo = web_sys::GpuTextureViewDescriptor::new();
+    yo.format(web_sys::GpuTextureFormat::R8unorm);
+    // let format =
 
     Ok(())
 }

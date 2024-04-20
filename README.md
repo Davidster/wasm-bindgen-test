@@ -5,7 +5,7 @@
 ## How to run
 
 ```sh
-cargo run --package build_web -- --bin test
+RUSTFLAGS=--cfg=web_sys_unstable_apis cargo run --package build_web -- --bin test
 ```
 
 or run 'Test' debug target in vscode debugger

@@ -81,6 +81,8 @@ Remove one flag or the other to continue."#
             }
         });
 
+        dbg!(&profile);
+
         let build_only = args.contains("--build-only");
         let help = args.contains("--help") || args.contains("-h");
 
@@ -151,6 +153,8 @@ fn main() {
         Some(profile) => profile,
         None => "debug",
     };
+
+    dbg!(&profile_dir_name);
 
     let workspace_root = PathBuf::from("");
     let target_directory = workspace_root.join("target");
