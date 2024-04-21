@@ -18,4 +18,5 @@ cargo install cargo-expand
 
 # run
 cargo-expand expand --features="RequestInit,RequestMode"
+RUSTFLAGS=--cfg=web_sys_unstable_apis cargo-expand expand --features="GpuTextureFormat"
 ```
