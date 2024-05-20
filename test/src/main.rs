@@ -26,12 +26,24 @@ fn run() -> Result<(), JsValue> {
 
     let mut opts = RequestInit::new();
     opts.method("GET");
-    opts.mode(RequestMode::NoCors);
+    opts.mode(RequestMode::SameOrigin);
     let request = Request::new_with_str_and_init("resource.png", &opts)?;
     let request_mode = request.mode();
 
     let val = document.create_element("p")?;
     val.set_inner_html(&format!("request_mode={request_mode:?}"));
+    body.append_child(&val)?;
+
+    let request_mode_js_value = JsValue::from(request_mode);
+    let val = document.create_element("p")?;
+    val.set_inner_html(&format!("request_mode_js_value={request_mode_js_value:?}"));
+    body.append_child(&val)?;
+
+    let request_mode_from_js_value = RequestMode::from_js_value(&request_mode_js_value);
+    let val = document.create_element("p")?;
+    val.set_inner_html(&format!(
+        "request_mode_from_js_value={request_mode_from_js_value:?}"
+    ));
     body.append_child(&val)?;
 
     let mut base_key_frame = BaseKeyframe::new();
@@ -67,7 +79,7 @@ fn run() -> Result<(), JsValue> {
 
     assert_eq!(tr1.direction(), RtcRtpTransceiverDirection::Sendonly);
     assert_eq!(tr1.current_direction(), None);
-    
+
     let mut yo = web_sys::GpuTextureViewDescriptor::new();
     yo.format(web_sys::GpuTextureFormat::R8unorm);
     // let format =
